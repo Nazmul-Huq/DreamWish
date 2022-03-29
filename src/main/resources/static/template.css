@@ -1,0 +1,21 @@
+/*
+ * This file contains only template related css code
+ * This page also contain code related to home page (only home page)
+*/
+
+#logo-div{
+    background-color: red;
+    width: 100%;
+}
+
+#body-div{
+    background-color: aqua;
+}
+
+#footer-div{
+    width: 100%;
+    background-color: blue;
+}
+
+.row{display: flex;}
+.column{flex: 1;}
