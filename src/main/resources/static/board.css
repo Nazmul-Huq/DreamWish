@@ -1,3 +1,9 @@
 /*
  * This file contain css code related to board, where people share their wish
 */
+#board-div {
+
+    background-image: url("https://i.imgur.com/IIVtSKj.jpg");
+    background-attachment: fixed;
+
+}
