@@ -12,5 +12,5 @@ public class HomeController {
     }
 
     @GetMapping("/board")
-    public String board() {return "board";}
+    public String board() {return "board"; }
 }

@@ -1,9 +1,31 @@
 /*
  * This file contain css code related to board, where people share their wish
 */
-#board-div {
 
+#board-backround{
+
+    background-color: #347572;
+}
+#board-div{
+
+    height: 25%;
+    width: 25%;
+    margin: 10px;
+    padding: 0;
+    box-sizing: border-box;
     background-image: url("https://i.imgur.com/IIVtSKj.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 
 }
+
+#box-div{
+    height: 25%;
+    width: 25%;
+    border: 5px solid #347572;
+    border-radius: 15px;
+ }
+
+
+
