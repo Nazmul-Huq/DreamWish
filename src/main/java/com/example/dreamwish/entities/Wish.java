@@ -1,6 +1,6 @@
 package com.example.dreamwish.entities;
 
-public class Wish {
+public class  Wish {
 
     private String title;
     private String description;

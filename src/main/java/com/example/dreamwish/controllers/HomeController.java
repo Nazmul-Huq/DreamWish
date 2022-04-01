@@ -1,6 +1,7 @@
 package com.example.dreamwish.controllers;
 
 import com.example.dreamwish.entities.Wish;
+import com.example.dreamwish.services.LoginService;
 import com.example.dreamwish.services.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ public class HomeController {
 
     @Autowired
     WishService wishService;
+    LoginService loginService;
 
     @GetMapping("/")
     public String home(){
@@ -37,4 +39,7 @@ public class HomeController {
 
         return null;
     }
+
+
+
 }
