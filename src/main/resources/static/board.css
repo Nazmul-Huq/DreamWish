@@ -8,11 +8,12 @@
     width: 100vw;
     background-color: #347572;
 }
-#board-div{
+.board-div{
 
     background-image: url("https://i.imgur.com/JDpel1h.jpg");
-    height: 33vh;
-    width: 33vw;
+    border: 2px solid chocolate;
+    height: auto;
+    width: auto;
     margin: 10px;
     padding: 10px;
     box-sizing: content-box;
