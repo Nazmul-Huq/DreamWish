@@ -4,9 +4,10 @@
 
 #board-background{
 
-    height: 100vh;
-    width: 100vw;
-    background-color: #347572;
+    /**  vh = view height **/
+    height: 90vh;
+    width: 100%;
+    background-color: cornflowerblue;
 }
 .board-div{
 
