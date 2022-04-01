@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Your Wish</title>
 </head>
 <body>
 
+    <div>
+        <form action="/add-wish-handler" method="post">
+            Title:
+            <input type="text" name="title"> <br>
+            Description:
+            <input type="text" name="description"><br>
+            Status:
+            <input type="text" name="status"><br>
+            Expired Date (dd-mm-yyyy):
+            <input type="text" name="expireDate"><br>
+            Image:
+            <input type="text" name="image"><br>
+            <button type="submit" value="add-Wish">Add Wish</button>
+
+        </form>
+    </div>
 </body>
 </html>
