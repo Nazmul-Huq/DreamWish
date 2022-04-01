@@ -1,3 +1,35 @@
 /*
  * This file contain css code related to board, where people share their wish
 */
+
+#board-background{
+
+    /**  vh = view height **/
+    height: 90vh;
+    width: 100%;
+    background-color: cornflowerblue;
+}
+.board-div{
+
+    background-image: url("https://i.imgur.com/JDpel1h.jpg");
+    border: 2px solid chocolate;
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    box-sizing: content-box;
+
+}
+
+#box-div{
+    height: 25%;
+    width: 25%;
+    border: 5px solid #347572;
+    border-radius: 15px;
+ }
+
+.row{display: flex;}
+.column{flex: 1;}
+
+
+
