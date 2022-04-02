@@ -3,7 +3,14 @@ package com.example.dreamwish.services;
 import com.example.dreamwish.entities.Wish;
 import com.example.dreamwish.repositories.WishRepo;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -145,4 +152,13 @@ public class WishService {
     }
 
 
+    public void saveImage(String imageName, MultipartFile multipartFile)  throws IOException {
+        Path uploadPath = Paths.get("src/main/resources/static/images");
+        try {
+            //Files.copy(multipartFile.getInputStream(), uploadPath.resolve(multipartFile.getOriginalFilename()));
+            Files.copy(multipartFile.getInputStream(), uploadPath.resolve(imageName));
+        } catch (IOException ioe) {
+            throw new IOException("Could not save image file: " + imageName);
+        }
+    }
 } // class ends here

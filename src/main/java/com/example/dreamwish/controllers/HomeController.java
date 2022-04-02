@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -49,11 +51,18 @@ public class HomeController {
             @RequestParam String description,
             @RequestParam String status,
             @RequestParam String expireDate,
-            @RequestParam String image,
+            @RequestParam("imageUpload")MultipartFile multipartFile,
             Model model
-            )
+            ) throws IOException
     {
-        List<String> addStatus = wishService.addWish(title, description, image, status, expireDate);
+        String imageName = "";
+        if (multipartFile != null) {
+            imageName = multipartFile.getOriginalFilename();
+            wishService.saveImage(imageName, multipartFile);
+        }
+
+        List<String> addStatus = wishService.addWish(title, description, imageName, status, expireDate);
+
         model.addAttribute(addStatus);
         return "redirect:/add-wish";
     }

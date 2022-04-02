@@ -7,7 +7,7 @@
 <body>
 
     <div>
-        <form action="/add-wish-handler" method="post">
+        <form action="/add-wish-handler" enctype="multipart/form-data" method="post">
             Title:
             <input type="text" name="title"> <br>
             Description:
@@ -16,8 +16,8 @@
             <input type="text" name="status"><br>
             Expired Date (dd-mm-yyyy):
             <input type="text" name="expireDate"><br>
-            Image:
-            <input type="text" name="image"><br>
+            <label>Image upload: </label>
+            <input type="file" name="imageUpload" accept="image/png, image/jpeg" />
             <button type="submit" value="add-Wish">Add Wish</button>
         </form>
 
