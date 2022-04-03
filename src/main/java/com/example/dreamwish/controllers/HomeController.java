@@ -116,15 +116,11 @@ public class HomeController {
         return "mypage";
     }
     */
-    /**
-     * below method will be deleted after Søs implements her method
-     */
-    /*
     @GetMapping("/board")
     public String board(){
         return "board";
     }
-    */
+
 
 
     /**  Nazmul's Methods starts here */
