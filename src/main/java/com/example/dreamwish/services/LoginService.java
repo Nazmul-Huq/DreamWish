@@ -7,7 +7,7 @@ import java.sql.*;
 public class LoginService {
 
     //Methods
-    public static Boolean logIn(String username, String password) {
+    public Boolean logIn(String username, String password, int userid) {
         return null;
 
         /*
@@ -43,17 +43,16 @@ public class LoginService {
     }
 
     public boolean checkLogin(String username) {
-        //it will check if the user is in the database if it is it
-        // will continue if not it will go nowhere
+        //it will check if the username is in the database if it is
+        // it will continue if not it will go nowhere
 
         boolean existingUsername = false;
-        String url = "jdbc:mysql://localhost:3306/dream_wish";
+
+        Connection con = DatabaseConnection.getDatabaseConnection();
 
         try {
-            Class.forName("jdbc:mysql://localhost:3306/dream_wish");
-            Connection con = DriverManager.getConnection(url,"root","Moha2300");
 
-            Statement stmt = con.prepareStatement("select * from dream_wish.login;");
+            Statement stmt = con.prepareStatement("select * from login;");
 
             ResultSet r1 = stmt.getResultSet();
 
@@ -65,7 +64,8 @@ public class LoginService {
                     existingUsername = true;
                 }
             }
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
+            System.out.println("user is not found");
             e.printStackTrace();
         }
         return existingUsername;

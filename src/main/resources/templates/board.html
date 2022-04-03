@@ -27,6 +27,12 @@
         this is a board
                 </div>
             <div class="board-div">
+                <section>
+                    <h1>Here is every wish: </h1>
+                    <p th:each="email: ${fetchWishes}">
+                        <span th:text=""${wishes}></span>
+                    </p>
+                </section>
 
             </div>
 

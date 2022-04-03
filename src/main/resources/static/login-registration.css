@@ -1,3 +1,47 @@
 /*
  * This file contains css code related to login and registration form and related page
 */
+body{
+    background-image: linear-gradient(to right bottom,greenyellow,green);
+    font-size: 1.5em;
+    height: 40em;
+    width: 75em;
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    display: flex;
+    justify-content: right;
+    align-items: flex-start;
+}
+
+h1 {
+    color: black;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: peachpuff;
+    width: 20em;
+    height: 13em;
+    border-radius: 2em ;
+    font-size: 2em;
+
+}
+
+#button {
+    padding: 5px 15px;
+    background-color: lavender;
+    border-bottom-style: dot-dash;
+    margin-left: 135px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 35px;
+}
+
+#button:hover {
+    background-color: aliceblue;
+    color: black;
+}
+
+

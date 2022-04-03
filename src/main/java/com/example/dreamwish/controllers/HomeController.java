@@ -1,5 +1,6 @@
 package com.example.dreamwish.controllers;
 
+import com.example.dreamwish.entities.Login;
 import com.example.dreamwish.entities.Wish;
 import com.example.dreamwish.services.LoginService;
 import com.example.dreamwish.services.WishService;
@@ -116,16 +117,16 @@ public class HomeController {
         return "mypage";
     }
     */
-    /**
-     * below method will be deleted after Søs implements her method
-     */
-    /*
     @GetMapping("/board")
     public String board(){
         return "board";
     }
-    */
 
+   @GetMapping("/login")
+    public String login() {
+
+        return "login";
+   }
 
     /**  Nazmul's Methods ends here */
 }
