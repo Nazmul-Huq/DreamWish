@@ -1,28 +1,68 @@
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit A Wish</title>
+    <title>My Wish List | Make Wish Get It</title>
+    <link th:href="@{/template.css}" rel="stylesheet" />
+    <link th:href="@{/menu.css}" rel="stylesheet" />
+    <link th:href="@{/add-edit-wish.css}" rel="stylesheet" />
+    <!-- <link th:href="@{login-registration.css}" rel="stylesheet" /> -->
+    <link th:href="@{/my-profile-page.css}" rel="stylesheet" />
 </head>
 <body>
+<div class="container">
+    <div id="logo-div">
+        <!-- a logo / name of the webapp will be here-->
+        logo div
+    </div>
+    <div id="menu-div">
+        <!-- menu items will be here-->
+        menu div
+    </div>
+    <div id="content-div">
+        <!-- main content/body will be here-->
+        <!-- all code above this line is common for all page-->
 
-<div>
-    <form action="/edit-wish-handler" method="post">
-        Title:
-        <input type="text" name="title" th:value="${wish.getTitle()}" > <br>
-        Description:
-        <input type="text" name="description" th:value="${wish.getDescription()}"><br>
-        Status:
-        <input type="text" name="status" th:value="${wish.getStatus()}"><br>
-        Expired Date (dd-mm-yyyy):
-        <input type="text" name="expireDate" th:value="${wish.getExpireDate()}"><br>
-        Image:
-        <input type="text" name="image" th:value="${wish.getImage()}"><br>
-        <input type="hidden" name="wishId" th:value="${wish.getId()}">
 
-        <button type="submit" value="edit-Wish">Edit Wish</button>
-    </form>
 
+
+        <div class="add-edit-wish">
+            <h1>Edit A Wish</h1>
+            <form action="/edit-wish-handler" method="post">
+                <label class="label">Title</label>
+                <input type="text" name="title" th:value="${wish.getTitle()}" >
+
+                <label class="label">Description</label>
+                <input type="text" name="description" th:value="${wish.getDescription()}">
+
+                <label class="label">Status</label>
+                <input type="text" name="status" th:value="${wish.getStatus()}">
+
+                <label class="label">Expired Date (dd-mm-yyyy)</label>
+                <input type="text" name="expireDate" th:value="${wish.getExpireDate()}">
+
+                <label class="label">Image upload</label>
+                <input type="file" name="imageUpload" accept="image/png, image/jpeg" />
+                <!--
+                *** Implement later: show if image already exist
+                <input type="text" name="imageUpload" th:value="${wish.getImage()}">
+                -->
+
+                <input type="hidden" name="wishId" th:value="${wish.getId()}">
+
+                <input type="submit" value="Edit Wish">
+            </form>
+
+        </div>
+
+        <!-- all code after this line is common for all page-->
+    </div>
+    <div id="footer-div">
+        <!-- footer related content will be here-->
+        footer div
+    </div>
 </div>
+
 </body>
 </html>

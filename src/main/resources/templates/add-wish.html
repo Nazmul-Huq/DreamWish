@@ -1,26 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Your Wish</title>
+    <title>My Wish List | Make Wish Get It</title>
+    <link th:href="@{/template.css}" rel="stylesheet" />
+    <link th:href="@{/menu.css}" rel="stylesheet" />
+    <link th:href="@{/add-edit-wish.css}" rel="stylesheet" />
+   <!-- <link th:href="@{login-registration.css}" rel="stylesheet" /> -->
+    <link th:href="@{/my-profile-page.css}" rel="stylesheet" />
 </head>
 <body>
+<div class="container">
+    <div id="logo-div">
+        <!-- a logo / name of the webapp will be here-->
+        logo div
+    </div>
+    <div id="menu-div">
+        <!-- menu items will be here-->
+        menu div
+    </div>
+    <div id="content-div">
+        <!-- main content/body will be here-->
+        <!-- all code above this line is common for all page-->
 
-    <div>
+    <div class="add-edit-wish">
+        <h1>Add A Wish</h1>
         <form action="/add-wish-handler" enctype="multipart/form-data" method="post">
-            Title:
-            <input type="text" name="title"> <br>
-            Description:
-            <input type="text" name="description"><br>
-            Status:
-            <input type="text" name="status"><br>
-            Expired Date (dd-mm-yyyy):
-            <input type="text" name="expireDate"><br>
-            <label>Image upload: </label>
+
+            <label class="label">Title</label>
+            <input type="text" name="title">
+
+            <label class="label">Description</label>
+            <input type="text" name="description">
+
+            <label class="label">Status</label>
+            <input type="text" name="status">
+
+            <label class="label">Expired Date (dd-mm-yyyy)</label>
+            <input type="text" name="expireDate">
+
+            <label class="label">Image upload</label>
             <input type="file" name="imageUpload" accept="image/png, image/jpeg" />
-            <button type="submit" value="add-Wish">Add Wish</button>
+
+            <input type="submit" value="Add Wish">
         </form>
 
     </div>
+
+        <!-- all code after this line is common for all page-->
+    </div>
+    <div id="footer-div">
+        <!-- footer related content will be here-->
+        footer div
+    </div>
+</div>
+
 </body>
 </html>
