@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <html lang="en" xmlns:th="http:www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>My page</title>
+        <link th:href="@{template.css}" rel="stylesheet" />
+        <link th:href="@{menu.css}" rel="stylesheet" />
+        <link th:href="@{add-edit-wish.css}" rel="stylesheet" />
+        <link th:href="@{login-registration.css}" rel="stylesheet" />
+        <link th:href="@{my-profile-page.css}" rel="stylesheet" />
+        <link rel="stylesheet" th:href="@{template.css}" href="..\static\template.css">
+    </head>
+
+
+
+
 <body>
+<div class="container">
+    <div id="logo-div">
+        <!-- a logo / name of the webapp will be here-->
+        <h1>DREAM•WISH</h1>
+    </div>
+    <div class = "row">
+    <div id="menu-div">
+        <!-- menu items will be here-->
+        menu div
+    </div>
+    </div>
+    <div id="content-div">
+        <!-- main content/body will be here-->
+        <!-- all code above this line is common for all page-->
+
+        <div class="your-name">
+            <!-- change this div according to your need-->
+        </div>
+
+        <!-- all code after this line is common for all page-->
+    </div>
+    <div id="footer-div">
+        <!-- footer related content will be here-->
+        footer div
+    </div>
+</div>
 
 </body>
 </html>
