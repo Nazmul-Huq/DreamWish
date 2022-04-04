@@ -29,7 +29,7 @@
 
         <div class="add-edit-wish">
             <h1>Edit A Wish</h1>
-            <form action="/edit-wish-handler" method="post">
+            <form action="/edit-wish-handler" enctype="multipart/form-data" method="post">
                 <label class="label">Title</label>
                 <input type="text" name="title" th:value="${wish.getTitle()}" >
 
@@ -45,7 +45,7 @@
                 <label class="label">Image upload</label>
                 <input type="file" name="imageUpload" accept="image/png, image/jpeg" />
                 <!--
-                *** Implement later: show if image already exist
+                *** Implement later: show the image if already exist
                 <input type="text" name="imageUpload" th:value="${wish.getImage()}">
                 -->
 

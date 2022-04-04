@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -60,11 +61,11 @@ public class HomeController {
             @RequestParam String description,
             @RequestParam String status,
             @RequestParam String expireDate,
-            @RequestParam("imageUpload") MultipartFile multipartFile,
+            @RequestParam(required = false, value = "imageUpload") MultipartFile multipartFile,
             Model model
     ) throws IOException {
         String imageName = "";
-        if (multipartFile != null) {
+        if (!(multipartFile.isEmpty())) {
             imageName = multipartFile.getOriginalFilename();
             wishService.saveImage(imageName, multipartFile);
         }
@@ -82,10 +83,17 @@ public class HomeController {
             @RequestParam String description,
             @RequestParam String status,
             @RequestParam String expireDate,
-            @RequestParam String image,
+            @RequestParam(required = false, value = "imageUpload") MultipartFile multipartFile,
             Model model
-    ) {
-        List<String> editStatus = wishService.editWish(wishId, title, description, image, status, expireDate);
+    ) throws IOException {
+        List<String> editStatus = new ArrayList<>();
+        String imageName = "";
+        if (multipartFile.isEmpty()) {
+            editStatus = wishService.editWish(wishId, title, description, imageName, status, expireDate);
+        } else {
+            imageName = multipartFile.getOriginalFilename();
+            wishService.saveImage(imageName, multipartFile);
+        }
         model.addAttribute(editStatus);
         return "redirect:/";
     }

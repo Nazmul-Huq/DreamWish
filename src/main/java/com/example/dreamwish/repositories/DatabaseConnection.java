@@ -13,7 +13,7 @@ public class DatabaseConnection {
 
         try {
             String url = "jdbc:mysql://localhost:3306/dream_wish";
-            Connection con = DriverManager.getConnection(url,"root","dAtAmAtiker2021");
+            Connection con = DriverManager.getConnection(url,"root","####");
             return con;
         } catch (Exception e) {
             return null;

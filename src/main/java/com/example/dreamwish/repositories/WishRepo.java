@@ -156,7 +156,8 @@ public class WishRepo {
 
             Connection connection = DatabaseConnection.getDatabaseConnection();
 
-            String query = "update wishes set title = ?, description= ?, image= ?, status= ?, expiredate= ? where wish_id = ?";
+            //UPDATE `dream_wish`.`wishes` SET `title` = 'title2', `description` = 'description2', `image` = 'dsds', `status` = 'status2', `expiredate` = '1-1-2021' WHERE (`wish_id` = '16');
+            String query = "UPDATE wishes SET title = ?, description= ?, image= ?, status= ?, expiredate= ? where wish_id = ?";
 
             // create the mysql insert prepared statement
             PreparedStatement preparedStmt = connection.prepareStatement(query);
@@ -169,7 +170,7 @@ public class WishRepo {
 
             // execute the prepared statement
             preparedStmt.executeUpdate();
-
+            preparedStmt.close();
             // close the connection
             connection.close();
             return true;
