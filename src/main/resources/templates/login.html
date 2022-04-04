@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{login-registration.css}" href="../static/login-registration.css">
+    <a href ="logout">Logout</a>
 </head>
 <body>
     <section class="login-content">
             <h1> Login </h1>
-        <form method="post" action="login">
+        <form method="post" action="login-handler">
             <label for="username">Username:</label>
-            <input id="username" type="text" name="login">
+            <input id="username" type="text" name="username">
             <br>
             <br>
             <label for="password">Password:</label>
-            <input id="password" type="password" name="login">
+            <input id="password" type="password" name="password">
             <br>
             <br>
             <input id="button" type="submit">
         </form>
-    </section>
-    <section class="registration-content">
-        <h1> Registration </h1>
-        <form method="post" action="login">
-
-        </form>
-
     </section>
 </body>
 </html>

@@ -7,43 +7,51 @@ import com.example.dreamwish.services.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
 @Controller
+@SessionAttributes("userSessionId")
 public class HomeController {
 
     @Autowired
     WishService wishService;
-    LoginService loginService;
+    LoginService loginService = new LoginService();
 
-    /**  Default Methods starts here*/
+    /**
+     * Default Methods starts here
+     */
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "index";
     }
 
     @GetMapping("/index")
-    public String index(){
+    public String index() {
         return "index";
     }
 
     /**  Default Methods ends here*/
 
 
-
-
-    /**  Nazmul's Methods starts here*/
+    /**
+     * Nazmul's Methods starts here
+     */
     @GetMapping("/add-wish")
-    public String addWish(){
-        return "add-wish";
+    public String addWish(HttpSession httpSession) {
+        Object getSession = httpSession.getAttribute("userSessionId");
+        if (getSession != null) {
+            return "add-wish";
+        } else {
+            return "redirect:/login";
+        }
+
     }
 
     @PostMapping("/add-wish-handler")
@@ -52,10 +60,9 @@ public class HomeController {
             @RequestParam String description,
             @RequestParam String status,
             @RequestParam String expireDate,
-            @RequestParam("imageUpload")MultipartFile multipartFile,
+            @RequestParam("imageUpload") MultipartFile multipartFile,
             Model model
-            ) throws IOException
-    {
+    ) throws IOException {
         String imageName = "";
         if (multipartFile != null) {
             imageName = multipartFile.getOriginalFilename();
@@ -77,15 +84,14 @@ public class HomeController {
             @RequestParam String expireDate,
             @RequestParam String image,
             Model model
-    )
-    {
+    ) {
         List<String> editStatus = wishService.editWish(wishId, title, description, image, status, expireDate);
         model.addAttribute(editStatus);
         return "redirect:/";
     }
 
     @GetMapping("/edit-wish/{id}")
-    public String editWish(@PathVariable int id, Model model){
+    public String editWish(@PathVariable int id, Model model) {
         Wish wish = wishService.getWishById(id);
         model.addAttribute("wish", wish);
         return "edit-wish";
@@ -98,7 +104,7 @@ public class HomeController {
     }
 
     @GetMapping("/share-wish")
-    public String shareWishInBoard(@RequestParam int id){
+    public String shareWishInBoard(@RequestParam int id) {
         System.out.println(wishService.shareWish(id));
         return "redirect:board";
     }
@@ -118,15 +124,34 @@ public class HomeController {
     }
     */
     @GetMapping("/board")
-    public String board(){
+    public String board() {
         return "board";
     }
 
-   @GetMapping("/login")
+    @GetMapping("/login")
     public String login() {
 
         return "login";
-   }
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        loginService.logOut(request);
+        return "redirect:/index";  //Where you go after logout.
+    }
+
+    @PostMapping("/login-handler")
+    public String loginHandler(@RequestParam String username, @RequestParam String password, HttpSession httpSession) {
+        int userId = loginService.logIn(username,password);
+        if (userId == 0) {
+            return "redirect:/login";
+        } else {
+            httpSession.setAttribute("userSessionId", userId);
+            return "redirect:/";
+
+        }
+
+    }
 
     /**  Nazmul's Methods ends here */
 }

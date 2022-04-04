@@ -9,35 +9,31 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class LoginRepo {
-    Connection connection;
+
     Statement stmt;
     ResultSet rSet;
 
-    public ArrayList<Login> getUsernameAndPassword(String username, String password) {
+    public int getUsernameAndPassword(String username, String password) {
 
-        ArrayList<Login> logins = new ArrayList<Login>();
+        int userid = 0;
         try {
-            connection = DatabaseConnection.getDatabaseConnection();
+            Connection connection = DatabaseConnection.getDatabaseConnection();
             stmt = connection.createStatement();
 
-            String query = "SELECT * FROM login WHERE username AND password=" + username + password;
+            String query = "SELECT * FROM login WHERE username=\'"+ username + "\'AND password=\'"+password+"\'";
 
             rSet = stmt.executeQuery(query);
             while (rSet.next()) {
-                int userid = rSet.getInt("user_id");
-                username = rSet.getString("username");
-                password = rSet.getString("password");
-
-                Login loginData = new Login(username,password,userid);
-                logins.add(loginData);
+                userid = rSet.getInt("user_id");
             }
             connection.close();
 
-            return logins;
+            return userid;
         } catch (Exception e) {
             e.printStackTrace();
+            return userid;
         }
-        return logins;
+
 
     }
 }

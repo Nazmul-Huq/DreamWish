@@ -1,14 +1,19 @@
 package com.example.dreamwish.services;
 
 import com.example.dreamwish.repositories.DatabaseConnection;
+import com.example.dreamwish.repositories.LoginRepo;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 
 public class LoginService {
+    static LoginRepo loginRepo = new LoginRepo();
 
     //Methods
-    public Boolean logIn(String username, String password, int userid) {
-        return null;
+    public int logIn(String username, String password) {
+
+        return loginRepo.getUsernameAndPassword(username,password);
 
         /*
         for (int i = 0; i < username.length(); i++) {
@@ -38,14 +43,21 @@ public class LoginService {
          */
     }
 
-    public void logOut() {
+    public void logOut(HttpServletRequest request) {
         //will log out and destroys session and sends user to home page
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
     }
 
-    public boolean checkLogin(String username) {
+    public void checkLogin(String username, String password) {
         //it will check if the username is in the database if it is
         // it will continue if not it will go nowhere
 
+        loginRepo.getUsernameAndPassword(username,password);
+
+        /*
         boolean existingUsername = false;
 
         Connection con = DatabaseConnection.getDatabaseConnection();
@@ -69,6 +81,11 @@ public class LoginService {
             e.printStackTrace();
         }
         return existingUsername;
+
+         */
+
     }
+
+
 
 }
