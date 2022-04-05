@@ -1,3 +1,26 @@
 /*
  * This file contains menu related css code
 */
+body {
+    color: #FFFFFF;
+}
+
+
+
+#menu-div {
+    bottom: 0px;
+    opacity: 0.75;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+#menu-div li {
+    display: inline;
+    margin-right:3px;
+}
+
+li {
+    text-decoration-line: underline;
+    display: inline-flex;
+}
