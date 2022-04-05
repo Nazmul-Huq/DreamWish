@@ -4,22 +4,37 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{login-registration.css}" href="../static/login-registration.css">
-    <a href ="logout">Logout</a>
+        <!-- <a href ="logout">Logout</a> -->
+    <link rel="stylesheet" th:href="@{menu.css}" href="..\static\menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{template.css}" href="..\static\template.css">
+
 </head>
-<body>
-    <section class="login-content">
-            <h1> Login </h1>
-        <form method="post" action="login-handler">
-            <label for="username">Username:</label>
-            <input id="username" type="text" name="username">
-            <br>
-            <br>
-            <label for="password">Password:</label>
-            <input id="password" type="password" name="password">
-            <br>
-            <br>
-            <input id="button" type="submit">
-        </form>
-    </section>
-</body>
+
+
+<body class="login-body">
+    <div class="login-container">
+        <section id="login-content">
+            <form method="post" action="login-handler">
+                <h1> Login </h1>
+                <div>
+                    <input type="text" placeholder="username" required="" id="username">
+                </div>
+                <div>
+                    <input type="password" placeholder="password" required="" id="password">
+                </div>
+                <div>
+                    <input type="submit" value="Log in">
+                </div>
+                <div class="buttons">
+                    <a href="">register</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="">forgot password?</a>
+                    <br>
+                    <br>
+                </div><!-- button -->
+            </form> <!-- form -->
+        </section> <!-- login-content -->
+    </div> <!-- login-container -->
+</body> <!-- login-body -->
 </html>
