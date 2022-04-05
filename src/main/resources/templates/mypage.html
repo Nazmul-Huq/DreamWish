@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<table>
+    <thead>
+    <tr>
+        <td>TITLE</td>
+        <td>Description</td>
+        <td>Edit</td>
+        <td>Delete</td>
+        <td>Share in Board</td>
+    </tr>
+    </thead>
+    <tr th:each="wish: ${wishes}">
+        <td th:text="${wish.title}" /></td>
+        <td th:text="${wish.description}" /></td>
+        <td>
+            <a th:href="@{/edit-wish/{id}(id=${wish.id})}" >Edit</a>
+        </td>
+        <td>
+        <a th:href="@{/delete-wish(id=${wish.id})}">Delete</a>
+        </td>
+        <td>
+            <a th:href="@{/share-wish(id=${wish.id})}">Share in Board</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
