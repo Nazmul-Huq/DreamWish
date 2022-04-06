@@ -1,11 +1,10 @@
 package com.example.dreamwish.services;
 
-import com.example.dreamwish.repositories.DatabaseConnection;
 import com.example.dreamwish.repositories.LoginRepo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.*;
+
 
 public class LoginService {
     static LoginRepo loginRepo = new LoginRepo();
@@ -50,42 +49,5 @@ public class LoginService {
             session.invalidate();
         }
     }
-
-    public void checkLogin(String username, String password) {
-        //it will check if the username is in the database if it is
-        // it will continue if not it will go nowhere
-
-        loginRepo.getUsernameAndPassword(username,password);
-
-        /*
-        boolean existingUsername = false;
-
-        Connection con = DatabaseConnection.getDatabaseConnection();
-
-        try {
-
-            Statement stmt = con.prepareStatement("select * from login;");
-
-            ResultSet r1 = stmt.getResultSet();
-
-            String usernameCounter;
-
-            if (r1.next()) {
-                usernameCounter = r1.getString(username);
-                if (usernameCounter.equals(username)) {
-                    existingUsername = true;
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("user is not found");
-            e.printStackTrace();
-        }
-        return existingUsername;
-
-         */
-
-    }
-
-
 
 }
