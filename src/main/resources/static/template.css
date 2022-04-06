@@ -134,10 +134,12 @@ body{
 
 .home-page-content{
     text-align: center;
+
 }
 
 .home-page-content a {
     color: black;
+    z-index: 1;
 }
 
 .home-page-content a:hover {
