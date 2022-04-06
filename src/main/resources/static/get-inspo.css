@@ -1,0 +1,25 @@
+/* Get inspo */
+
+#content-div-inspo inspo-page-content{
+    color: #FFFFFF;
+}
+
+.inspo-page-content{
+    text-align: center;
+}
+
+.box{
+    height: 200px;
+    width: 200px;
+    border: 5px solid white;
+    border-radius: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.row{
+    display: inline-block;
+}
+.column{flex: 1;}
+
+

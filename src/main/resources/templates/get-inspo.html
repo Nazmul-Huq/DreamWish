@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My page</title>
+    <title>Get Inspo</title>
     <link th:href="@{template.css}" rel="stylesheet" />
     <link th:href="@{menu.css}" rel="stylesheet" />
     <link th:href="@{add-edit-wish.css}" rel="stylesheet" />
@@ -11,6 +11,7 @@
     <link rel="stylesheet" th:href="@{template.css}" href="..\static\template.css">
     <link rel="stylesheet" th:href="@{menu.css}" href="..\static\menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{get-inspo.css}" href="..\static\get-inspo.css">
 </head>
 
 <body>
@@ -26,17 +27,17 @@
 
         <ul class="nav-menu" style="";>
             <li><a href="mypage">My Wishlist</a></li>
-             •
+            •
             <li><a href="mypage">Wishlists Shared With Me</a></li>
-             •
-            <li><a href="get-inspo">Get Inspo</a></li>
-             •
-            <li><a href="profile">My Profile</a></li>
+            •
+            <li><a href="mypage">Get Inspo</a></li>
+            •
+            <li><a href="mypage">My Profile</a></li>
         </ul>
     </div>
 
 
-    <div id="content-div">
+    <div id="content-div-inspo">
         <!-- main content/body will be here-->
         <!-- all code above this line is common for all page-->
         <div id="clouds">
@@ -47,16 +48,29 @@
             <div class="cloud x5"></div>
         </div>
 
-        <div class="home-page-content">
+        <div class="inspo-page-content">
             <!-- change this div according to your need-->
+            Get your wish inspirations here!
+            <br>
+            <br>
 
-            DON'T HAVE AN ACCOUNT?
-            <br>
-            <li><a href="add-user">Sign Up</a></li>
-            <br>
-            or
-            <br>
-            <li><a href="login">Login</a></li>
+            <div class="row">
+            <div class="box">
+                <h>Imerco</h>
+            </div>
+
+            <div class="box">
+
+            </div>
+            <div class="box">
+
+            </div>
+
+            <div class="box">
+
+            </div>
+            </div>
+
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
 
