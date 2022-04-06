@@ -1,22 +1,21 @@
 /*
  * This file contains menu related css code
 */
-body {
-    color: #FFFFFF;
-}
+
 
 
 
 #menu-div {
     bottom: 0px;
-    opacity: 0.75;
     height: 100px;
     width: 100%;
     text-align: center;
+    color: #FFFFFF;
 }
 
-#menu-div li {
-    display: inline;
+.menu-div li {
+    display: flex;
+    flex-direction: row;
     margin-right:3px;
 }
 

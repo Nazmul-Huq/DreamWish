@@ -7,33 +7,22 @@ import java.util.List;
 public class BoardRepo {
 
     static Statement stmt;
-    static Connection con;
-
     static ArrayList<String> wishes = new ArrayList<>();
 
-    public static Connection getDatabaseConnection(){
+    public static String shareWishes(String wish) {
 
-        try {
-            String url = "jdbc:mysql://localhost:3306/dream_wish";
-            Connection con = DriverManager.getConnection(url,"root","Kiy3ia#");
-            return con;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public static List<String> fetchWishes() {
+        Connection con = DatabaseConnection.getDatabaseConnection();
 
         try {
             stmt = con.createStatement();
 
-            ResultSet rs = stmt.executeQuery("SELECT wishes FROM dream_wish");
+            ResultSet rs = stmt.executeQuery("SELECT * " + "FROM users " + "JOIN wishes ON  users.id =wishes.wish_id " + "JOIN board ON wishes.wish_id = board.wishes_id;");
 
             while (rs.next()) {
-                String wish = rs.getString("wish");
+                String gettingWish = rs.getString("firstname, title, description, image");
                 wishes.add(wish);
             }
-            return wishes;
+            return "wishes";
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -41,3 +30,7 @@ public class BoardRepo {
     }
 
 }
+
+//SELECT users.id, users.firstname, wishes.title, wishes.description, wishes.image
+//FROM users, wishes
+//WHERE users.id = wishes.wish_id
