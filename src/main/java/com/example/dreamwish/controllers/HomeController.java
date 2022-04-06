@@ -2,6 +2,7 @@ package com.example.dreamwish.controllers;
 
 import com.example.dreamwish.entities.Login;
 import com.example.dreamwish.entities.Wish;
+import com.example.dreamwish.services.BoardService;
 import com.example.dreamwish.services.LoginService;
 import com.example.dreamwish.services.UserService;
 import com.example.dreamwish.services.WishService;
@@ -27,6 +28,7 @@ public class HomeController {
     @Autowired
     UserService userService;
     LoginService loginService = new LoginService();
+    BoardService boardService = new BoardService();
 
     /**
      * Default Methods starts here
@@ -144,12 +146,14 @@ public class HomeController {
         }
     }
 
-
     @GetMapping("/board")
-    public String board() {
+    public String board(Model model) {
+        ArrayList<Wish> wishesFromBoard = boardService.getwishesFromBoard();
+        model.addAttribute("wishesFromBoard", wishesFromBoard);
 
         return "board";
     }
+
 
     @GetMapping("/login")
     public String login() {

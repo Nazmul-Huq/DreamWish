@@ -13,11 +13,19 @@
 <div class="container">
     <div id="logo-div">
         <!-- a logo / name of the webapp will be here-->
-        logo div
+        <p><h1>DREAM•WISH</h1></p>
     </div>
     <div id="menu-div">
         <!-- menu items will be here-->
-        menu div
+        <ul class="nav-menu" style="";>
+            <li>My Wishlist</li>
+            •
+            <li>Wishlists Shared With Me</li>
+            •
+            <li>Get Inspo</li>
+            •
+            <li>My Profile</li>
+        </ul>
     </div>
     <div id="body-div">
         <div class="row">
@@ -27,8 +35,10 @@
             <div class="board-div">
                 <section>
                     <h1>Here is every wish: </h1>
-                    <p th:each="wish: ${test}">
-                        <span th:text="${wish}"></span>
+                    <p th:each="wish: ${wishesFromBoard}">
+                        <span th:text="${wish.title}"></span>
+                        <span th:text="${wish.description}"></span>
+                        <span th:text="${wish.status}"></span>
                     </p>
                 </section>
 
@@ -42,7 +52,27 @@
     </div>
     <div id="footer-div">
         <!-- footer related content will be here-->
-        footer div
+        <div class="row">
+            <div class="column" id="address-div">
+                <h4>Address</h4>
+                Dream Wish <br/>
+                Guldbergsgade 29N, <br/>
+                2200 København <br/>
+            </div>
+
+            <div class="column" id="contact-div">
+                <h4>Contact information</h4>
+                Phone: + 45 75 42 42 42 <br/>
+                Email: dreamwish@stud.kea.dk
+            </div>
+
+            <div class="column" id="follow-div">
+                <h4>Follow Us</h4>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+        </div>
     </div>
 </div>
 
