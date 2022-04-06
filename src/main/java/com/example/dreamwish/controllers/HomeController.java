@@ -128,11 +128,11 @@ public class HomeController {
      * Below method will be deleted after Sara implement her controller method
      */
     @GetMapping("/mypage")
-    public String myPage(HttpSession httpSession, ModelMap modelMap){
+    public String myPage(HttpSession httpSession, ModelMap modelMap) {
         // before doing anything we should check if user is logged in or not
         // if not logged in redirect to login page
         // if logged in then call wish service, add model, return to mypage
-        Object  sessionObject = httpSession.getAttribute("userSessionId");
+        Object sessionObject = httpSession.getAttribute("userSessionId");
         if (sessionObject != null) {
             int id = (int) httpSession.getAttribute("userSessionId");
             List<Wish> wishes = wishService.getUserWishes(id);
@@ -169,7 +169,7 @@ public class HomeController {
 
     @PostMapping("/login-handler")
     public String loginHandler(@RequestParam String username, @RequestParam String password, HttpSession httpSession) {
-        int userId = loginService.logIn(username,password);
+        int userId = loginService.logIn(username, password);
         if (userId == 0) {
             return "redirect:/login";
         } else {
@@ -178,6 +178,11 @@ public class HomeController {
 
         }
 
+    }
+
+    @GetMapping("/signup")
+    public String signUp() {
+        return "add-user";
     }
 
     /**  Nazmul's Methods ends here */

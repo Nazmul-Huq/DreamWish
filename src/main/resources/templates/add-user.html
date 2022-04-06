@@ -2,9 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>SignUp</title>
+    <link rel="stylesheet" th:href="@{sign-up.css}" href="../static/sign-up.css">
+    <link rel="stylesheet" th:href="@{menu.css}" href="..\static\menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{template.css}" href="..\static\template.css">
 </head>
-<body>
 
+<div class="container">
+    <div id="logo-div">
+        <!-- a logo / name of the webapp will be here-->
+        <p><h1>DREAM•WISH</h1></p>
+    </div>
+
+    <div id="menu-div" >
+        <!-- menu items will be here-->
+
+        <ul class="nav-menu";>
+            <li><a href="mypage">My Wishlist</a></li>
+            •
+            <li><a href="mypage">Wishlists Shared With Me</a></li>
+            •
+            <li><a href="get-inspo">Get Inspo</a></li>
+            •
+            <li><a href="profile">My Profile</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<body class="signup-body">
+    <div id="clouds">
+        <div class="cloud x1"></div>
+        <div class="cloud x2"></div>
+        <div class="cloud x3"></div>
+      <div class="signup-container">
+        <section id="signup-content">
+             <form method="post" action=""> <!-- fix this!! -->
+                <h1> Sign up </h1>
+                <div>
+                     <input type="text" placeholder="firstname" id="firstname" name="firstname">
+                </div>
+                <div>
+                    <input type="text" placeholder="lastname" id="lastname" name="lastname">
+                </div>
+                <div>
+                    <input type="text" placeholder="email" id="email" name="email">
+                </div>
+                <div>
+                    <input type="text" placeholder="username" id="username" name="username">
+                </div>
+                <div>
+                    <input type="password" placeholder="password" id="password" name="password">
+                </div>
+                <div>
+                    <input type="submit" value="Sign up">
+                </div>
+                <div class="button">
+                    <a href="login">Log in</a>
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <br>
+                  <br>
+
+                </div><!-- button -->
+            </form> <!-- form -->
+        </section> <!-- Signup-content -->
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
+
+
+<div id="footer-div">
+    <!-- footer related content will be here-->
+    <hr class="dashed">
+    <div class="row">
+        <div class="column" id="address-div">
+            <h4>Address</h4>
+            Dream Wish <br/>
+            Guldbergsgade 29N, <br/>
+            2200 København <br/>
+        </div>
+
+        <div class="column" id="contact-div">
+            <h4>Contact information</h4>
+            Phone: + 45 75 42 42 42 <br/>
+            Email: dreamwish@stud.kea.dk
+        </div>
+
+        <div class="column" id="follow-div">
+            <h4>Follow Us</h4>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-youtube"></a>
+        </div>
+    </div>
+</div>
 </html>
