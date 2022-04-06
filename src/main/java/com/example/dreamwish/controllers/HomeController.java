@@ -2,12 +2,14 @@ package com.example.dreamwish.controllers;
 
 import com.example.dreamwish.entities.Login;
 import com.example.dreamwish.entities.Wish;
+import com.example.dreamwish.repositories.BoardRepo;
 import com.example.dreamwish.services.LoginService;
 import com.example.dreamwish.services.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -131,6 +133,13 @@ public class HomeController {
         return "mypage";
     }
     */
+    @PostMapping("/test")
+    public String test(WebRequest dataFromForm) {
+        //Kald noget data
+        String gettingWishes = BoardRepo.shareWishes(dataFromForm.getParameter("wish"));
+        return "redirect:/board";
+    }
+
     @GetMapping("/board")
     public String board() {
         return "board";

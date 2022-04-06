@@ -6,7 +6,6 @@
     <link th:href="@{template.css}" rel="stylesheet" />
     <link th:href="@{menu.css}" rel="stylesheet">
     <link th:href="@{add-edit-wish.css}" rel="stylesheet" />
-    <link th:href="@{login-registration.css}" rel="stylesheet" />
     <link th:href="@{my-profile-page.css}" rel="stylesheet" />
     <link th:href="@{board.css}" rel="stylesheet" >
 </head>
@@ -20,19 +19,19 @@
         <!-- menu items will be here-->
         menu div
     </div>
-    <div id="board-background">
+    <div id="body-div">
         <div class="row">
             <div class="board-div">
 
-        this is a board
                 </div>
             <div class="board-div">
                 <section>
                     <h1>Here is every wish: </h1>
-                    <p th:each="email: ${fetchWishes}">
-                        <span th:text=""${wishes}></span>
+                    <p th:each="wish: ${test}">
+                        <span th:text="${wish}"></span>
                     </p>
                 </section>
+
 
             </div>
 
