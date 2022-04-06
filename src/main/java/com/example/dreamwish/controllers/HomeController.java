@@ -139,6 +139,7 @@ public class HomeController {
             modelMap.addAttribute("wishes", wishes);
             return "mypage";
         } else {
+
             return "redirect:/login";
         }
     }
