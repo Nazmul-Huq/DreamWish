@@ -3,10 +3,12 @@ package com.example.dreamwish.controllers;
 import com.example.dreamwish.entities.Login;
 import com.example.dreamwish.entities.Wish;
 import com.example.dreamwish.services.LoginService;
+import com.example.dreamwish.services.UserService;
 import com.example.dreamwish.services.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +24,8 @@ public class HomeController {
 
     @Autowired
     WishService wishService;
+    @Autowired
+    UserService userService;
     LoginService loginService = new LoginService();
 
     /**
@@ -62,6 +66,7 @@ public class HomeController {
             @RequestParam String status,
             @RequestParam String expireDate,
             @RequestParam(required = false, value = "imageUpload") MultipartFile multipartFile,
+            HttpSession httpSession,
             Model model
     ) throws IOException {
         String imageName = "";
@@ -69,8 +74,8 @@ public class HomeController {
             imageName = multipartFile.getOriginalFilename();
             wishService.saveImage(imageName, multipartFile);
         }
-
-        List<String> addStatus = wishService.addWish(title, description, imageName, status, expireDate);
+        int userId = (int) httpSession.getAttribute("userSessionId");
+        List<String> addStatus = wishService.addWish(title, description, imageName, status, expireDate, userId);
 
         model.addAttribute(addStatus);
         return "redirect:/add-wish";
@@ -120,19 +125,28 @@ public class HomeController {
     /**
      * Below method will be deleted after Sara implement her controller method
      */
-    /*
     @GetMapping("/mypage")
-    public String myPage(@RequestParam int id, Model model){
+    public String myPage(HttpSession httpSession, ModelMap modelMap){
         // before doing anything we should check if user is logged in or not
         // if not logged in redirect to login page
         // if logged in then call wish service, add model, return to mypage
-        List<Wish> wishes = wishService.getUserWishes(id);
-        model.addAttribute("wishes", wishes);
-        return "mypage";
+        Object  sessionObject = httpSession.getAttribute("userSessionId");
+        if (sessionObject != null) {
+            int id = (int) httpSession.getAttribute("userSessionId");
+            List<Wish> wishes = wishService.getUserWishes(id);
+            String userName = userService.getUserName(id);
+            modelMap.addAttribute("userName", userName);
+            modelMap.addAttribute("wishes", wishes);
+            return "mypage";
+        } else {
+            return "redirect:/login";
+        }
     }
-    */
+
+
     @GetMapping("/board")
     public String board() {
+
         return "board";
     }
 

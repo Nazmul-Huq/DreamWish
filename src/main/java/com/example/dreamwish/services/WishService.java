@@ -27,11 +27,14 @@ public class WishService {
      * @param expireDate
      * @return
      */
-    public List<String> addWish(String title,
-                          String description,
-                          String image,
-                          String status,
-                          String expireDate)
+    public List<String> addWish(
+            String title,
+            String description,
+            String image,
+            String status,
+            String expireDate,
+            int userId
+    )
     {
 
         //create an ArrayList to store and return if any error/data missing appear
@@ -46,7 +49,7 @@ public class WishService {
         } else {
 
             // create a wish
-            Wish wish = new Wish(title, description, image, status, expireDate, 1);
+            Wish wish = new Wish(title, description, image, status, expireDate, userId);
 
             // if wish added successfully, then attach a success message, else attach a failed message
             if (wishRepo.addWish(wish)) {
@@ -168,4 +171,6 @@ public class WishService {
             throw new IOException("Could not save image file: " + imageName);
         }
     }
+
+
 } // class ends here
