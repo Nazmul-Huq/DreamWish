@@ -132,6 +132,19 @@ body{
 
 }
 
+.home-page-content{
+    text-align: center;
+}
+
+.home-page-content a {
+    color: black;
+}
+
+.home-page-content a:hover {
+    color: #B9DFFF;
+}
+
+
 hr.dashed {
     border-top: 3px dashed #FFFFFF;
 }

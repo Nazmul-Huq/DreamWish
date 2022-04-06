@@ -19,6 +19,14 @@
     margin-right:3px;
 }
 
+.nav-menu a {
+    color: #FFFFFF;
+}
+
+.nav-menu a:hover {
+    color: #B9DFFF;
+}
+
 li {
     text-decoration-line: underline;
     display: inline-flex;
