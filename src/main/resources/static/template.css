@@ -132,12 +132,12 @@ body{
 
 }
 
+hr.dashed {
+    border-top: 3px dashed #FFFFFF;
+}
+
 #footer-div{
     width: 100%;
-    /*background-image: linear-gradient(lightcyan, lightskyblue);
-    font-size:1.5rem;
-    height: 100vh;
-    width: 100vw;*/
 }
 
 .fa {
