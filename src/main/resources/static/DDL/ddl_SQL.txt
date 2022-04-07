@@ -1,0 +1,60 @@
+CREATE SCHEMA `dream_wish` ;
+
+
+CREATE TABLE `dream_wish`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(50) NOT NULL,
+  `lastname` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `address` VARCHAR(100) NULL,
+  `phone` INT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+
+
+CREATE TABLE `dream_wish`.`login` (
+  `user_id` INT NOT NULL,
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(50) NOT NULL,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `dream_wish`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+CREATE TABLE `dream_wish`.`wishes` (
+  `wish_id` INT NOT NULL,
+  `title` VARCHAR(100) NOT NULL,
+  `description` MEDIUMTEXT NOT NULL,
+  `image` VARCHAR(45) NULL,
+  `status` VARCHAR(45) NULL,
+  `expiredate` VARCHAR(45) NULL,
+  `user_id` INT NOT NULL,
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `user_wish_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `dream_wish`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+ALTER TABLE `dream_wish`.`wishes` 
+CHANGE COLUMN `wish_id` `wish_id` INT NOT NULL AUTO_INCREMENT ,
+ADD PRIMARY KEY (`wish_id`);
+;
+
+
+CREATE TABLE `dream_wish`.`board` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `wishes_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `pinupboard_idx` (`wishes_id` ASC) VISIBLE,
+  CONSTRAINT `pinupboard`
+    FOREIGN KEY (`wishes_id`)
+    REFERENCES `dream_wish`.`wishes` (`wish_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
