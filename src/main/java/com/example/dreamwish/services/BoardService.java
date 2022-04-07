@@ -9,6 +9,10 @@ public class BoardService {
 
     BoardRepo boardRepo = new BoardRepo();
 
+    /**
+     * get all wishes from board
+     * @return
+     */
     public ArrayList<Wish> getwishesFromBoard() {
         return boardRepo.gettingWishes();
     }

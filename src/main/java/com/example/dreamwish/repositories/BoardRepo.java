@@ -11,6 +11,11 @@ public class BoardRepo {
     static Statement stmt;
     static ArrayList<String> wishes = new ArrayList<>();
 
+    /**
+     * get all wishes from board
+     * @return
+     */
+
     public ArrayList<Wish> gettingWishes() {
 
         Connection con = DatabaseConnection.getDatabaseConnection();
