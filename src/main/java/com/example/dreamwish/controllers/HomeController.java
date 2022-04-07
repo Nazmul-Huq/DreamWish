@@ -48,6 +48,7 @@ public class HomeController {
     /**  Default Methods ends here*/
 
 
+    // show add wish page
     @GetMapping("/add-wish")
     public String addWish(HttpSession httpSession) {
         Object getSession = httpSession.getAttribute("userSessionId");
@@ -59,6 +60,7 @@ public class HomeController {
 
     }
 
+    // handle the add wish post
     @PostMapping("/add-wish-handler")
     public String addWishHandler(
             @RequestParam String title,
@@ -81,6 +83,7 @@ public class HomeController {
         return "redirect:/mypage";
     }
 
+    // edit a wish
     @PostMapping("/edit-wish-handler")
     public String editWishHandler(
             @RequestParam int wishId,
@@ -103,6 +106,7 @@ public class HomeController {
         return "redirect:/mypage";
     }
 
+    // edit wish page
     @GetMapping("/edit-wish/{id}")
     public String editWish(@PathVariable int id, Model model) {
         Wish wish = wishService.getWishById(id);
@@ -110,19 +114,21 @@ public class HomeController {
         return "edit-wish";
     }
 
+    // delete a wish
     @GetMapping("/delete-wish")
     public String deleteWish(@RequestParam int id) {
         wishService.deleteWish(id);
         return "redirect:/";
     }
 
+    // share a wish with board
     @GetMapping("/share-wish")
     public String shareWishInBoard(@RequestParam int id) {
         System.out.println(wishService.shareWish(id));
         return "redirect:board";
     }
 
-
+    // show mypage
     @GetMapping("/mypage")
     public String myPage(HttpSession httpSession, ModelMap modelMap){
         // before doing anything we should check if user is logged in or not
@@ -141,26 +147,21 @@ public class HomeController {
         }
     }
 
+    //show board page
     @GetMapping("/board")
     public String board(Model model) {
         ArrayList<Wish> wishesFromBoard = boardService.getwishesFromBoard();
         model.addAttribute("wishesFromBoard", wishesFromBoard);
-
         return "board";
     }
 
-
+    // show login page
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-    @RequestMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        loginService.logOut(request);
-        return "redirect:/index";  //Where you go after logout.
-    }
-
+    // handle login request
     @PostMapping("/login-handler")
     public String loginHandler(@RequestParam String username, @RequestParam String password, HttpSession httpSession) {
         int userId = loginService.logIn(username,password);
@@ -172,11 +173,20 @@ public class HomeController {
         }
     }
 
+    // handle logout
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        loginService.logOut(request);
+        return "redirect:/index";  //Where you go after logout.
+    }
+
+    // show add user page
     @GetMapping("/add-user")
     public String addUser(){
         return "add-user";
     }
 
+    // handle add user request
     @PostMapping("/add-user-handler")
     public String addUserHandler(
             @RequestParam String firstName,
@@ -196,6 +206,7 @@ public class HomeController {
         return "redirect:/mypage";
     }
 
+    // show edit user page
     @GetMapping("/edit-user/{id}")
     public String editUser(@PathVariable int id, Model model) {
         User user = userService.getUserDetail(id);
@@ -203,6 +214,7 @@ public class HomeController {
         return "edit-user";
     }
 
+    // handle edit user request
     @PostMapping("/edit-user-handler")
     public String editUserHandler(
             @RequestParam int userId,
@@ -210,7 +222,6 @@ public class HomeController {
             @RequestParam String address,
             @RequestParam String phone
     ) {
-
         userService.editUser(userId, email, address, phone);
         return "redirect:/mypage";
     }
