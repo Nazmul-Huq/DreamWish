@@ -226,4 +226,14 @@ public class HomeController {
         return "redirect:/mypage";
     }
 
+    @GetMapping("/profile")
+    public String profilePage(){
+        return "profile";
+    }
+
+    @GetMapping("/get-inspo")
+    public String getInspo(){
+        return "get-inspo";
+    }
+
 } // class ends here

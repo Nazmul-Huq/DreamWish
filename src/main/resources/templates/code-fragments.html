@@ -4,11 +4,12 @@
 
     <div th:fragment="head">
         <link th:href="@{/template.css}" href="..\static\template.css" rel="stylesheet" >
-        <link th:href="@{/board.css}" href="..\static\board.css" rel="stylesheet" >
         <link th:href="@{/menu.css}" href="..\static\menu.css" rel="stylesheet" >
+        <link th:href="@{/board.css}" href="..\static\board.css" rel="stylesheet" >
         <link th:href="@{/add-edit-wish.css}" href="..\static\add-edit-wish.css" rel="stylesheet" />
         <link th:href="@{/login-registration.css}" href="..\static\login-registration.css" rel="stylesheet" />
         <link th:href="@{/my-profile-page.css}" href="..\static\my-profile-page.css" rel="stylesheet" />
+        <link th:href="@{/get-inspo.css}" href="..\static\get-inspo.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </div>
 
@@ -38,30 +39,31 @@
     </div>
 
 
-    <div th:fragment="footer">
-        <!-- footer related content will be here-->
-        <hr class="dashed">
-        <div class="row">
-            <div class="column" id="address-div">
-                <h4>Address</h4>
-                Dream Wish <br/>
-                Guldbergsgade 29N, <br/>
-                2200 København <br/>
-            </div>
+    <div class="footer-div" th:fragment="footer">
+            <!-- footer related content will be here -->
 
-            <div class="column" id="contact-div">
-                <h4>Contact information</h4>
-                Phone: + 45 75 42 42 42 <br/>
-                Email: dreamwish@stud.kea.dk
-            </div>
+            <hr class="dashed">
+            <div class="row">
+                <div class="column" id="address-div">
+                    <h4>Address</h4>
+                    Dream Wish <br/>
+                    Guldbergsgade 29N, <br/>
+                    2200 København <br/>
+                </div>
 
-            <div class="column" id="follow-div">
-                <h4>Follow Us</h4>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-youtube"></a>
+                <div class="column" id="contact-div">
+                    <h4>Contact information</h4>
+                    Phone: + 45 75 42 42 42 <br/>
+                    Email: dreamwish@stud.kea.dk
+                </div>
+
+                <div class="column" id="follow-div">
+                    <h4>Follow Us</h4>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
             </div>
-        </div>
     </div>
 
 </body>

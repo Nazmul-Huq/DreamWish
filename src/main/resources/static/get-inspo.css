@@ -17,9 +17,9 @@
     text-align: center;
 }
 
-.row{
+.row-inspo{
     display: inline-block;
 }
-.column{flex: 1;}
+.column-inspo{flex: 1;}
 
 

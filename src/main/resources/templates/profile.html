@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Make And Share Wish</title>
+    <div th:replace="code-fragments :: head"></div>
 </head>
+
 <body>
+
+<div th:replace="code-fragments :: logo-menu"></div>
+
+<div id="content-div">
+    <!-- main content/body will be here-->
+    <!-- all code above this line is common for all page-->
+
+
+    <div class="profile-page-content">
+        <!-- change this div according to your need-->
+        <h1> Profile page is under construction</h1>
+    </div>
+
+    <!-- all code after this line is common for all page-->
+</div>
+
+
+<div th:replace="code-fragments :: footer"></div>
 
 </body>
 </html>
