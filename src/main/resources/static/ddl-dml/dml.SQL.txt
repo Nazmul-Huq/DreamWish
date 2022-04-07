@@ -1,0 +1,17 @@
+insert into dream_wish.users value(1,"jimmy", "neutron","neutron232@hotmail.com","gylle alle",38492013);
+insert into dream_wish.users value(2,"lily", "applesauce","sweetapples@hotmail.com","kolledel vej",5643579);
+insert into dream_wish.users value(3,"ali", "baba","bababubu@hotmail.com","ringenskvarter",98643524);
+
+insert into dream_wish.wishes value(1,"rollerblades","shoes with wheels","image","available","12-03-2022",1);
+insert into dream_wish.wishes value(2,"tank","vehicle","image","available","02-05-2022",2);
+insert into dream_wish.wishes value(3,"shisha","smoking device","image","available","08-01-2023",3);
+insert into dream_wish.wishes value(4,"doll","bratz doll with pink hair","image","reserved","23-07-2028",3);
+
+insert into dream_wish.login value(1,"jimmy332","123");
+insert into dream_wish.login value(3,"lily119","456");
+insert into dream_wish.login value(3,"ali","789");
+
+insert into dream_wish.board value(1,1);
+insert into dream_wish.board value(2,2);
+insert into dream_wish.board value(3,3);
+insert into dream_wish.board value(4,4);
