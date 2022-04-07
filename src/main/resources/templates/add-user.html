@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Wish List | Make Wish Get It</title>
+    <link th:href="@{/template.css}" rel="stylesheet" />
+    <link th:href="@{/menu.css}" rel="stylesheet" />
+    <link th:href="@{/add-edit-wish.css}" rel="stylesheet" />
+    <!-- <link th:href="@{login-registration.css}" rel="stylesheet" /> -->
+    <link th:href="@{/my-profile-page.css}" rel="stylesheet" />
 </head>
 <body>
+<div class="container">
+    <div id="logo-div">
+        <!-- a logo / name of the webapp will be here-->
+        logo div
+    </div>
+    <div id="menu-div">
+        <!-- menu items will be here-->
+        menu div
+    </div>
+    <div id="content-div">
+        <!-- main content/body will be here-->
+        <!-- all code above this line is common for all page-->
+
+        <div class="add-edit-wish, add-edit-user">
+            <h1>Add A Wish</h1>
+            <form action="/add-user-handler" method="post">
+
+                <label class="label">First Name</label>
+                <input type="text" name="firstName">
+
+                <label class="label">Last Name</label>
+                <input type="text" name="lastName">
+
+                <label class="label">Email</label>
+                <input type="text" name="email">
+
+                <label class="label">Address</label>
+                <input type="text" name="address">
+
+                <label class="label">phone</label>
+                <input type="text" name="phone" />
+
+                <label class="label">Username</label>
+                <input type="text" name="username" />
+
+                <label class="label">Password</label>
+                <input type="text" name="password" />
+
+                <input type="submit" value="Add User">
+            </form>
+
+        </div>
+
+        <!-- all code after this line is common for all page-->
+    </div>
+    <div id="footer-div">
+        <!-- footer related content will be here-->
+        footer div
+    </div>
+</div>
 
 </body>
 </html>

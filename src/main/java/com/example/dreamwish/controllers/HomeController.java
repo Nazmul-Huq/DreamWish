@@ -1,6 +1,7 @@
 package com.example.dreamwish.controllers;
 
 import com.example.dreamwish.entities.Login;
+import com.example.dreamwish.entities.User;
 import com.example.dreamwish.entities.Wish;
 import com.example.dreamwish.services.BoardService;
 import com.example.dreamwish.services.LoginService;
@@ -47,9 +48,6 @@ public class HomeController {
     /**  Default Methods ends here*/
 
 
-    /**
-     * Nazmul's Methods starts here
-     */
     @GetMapping("/add-wish")
     public String addWish(HttpSession httpSession) {
         Object getSession = httpSession.getAttribute("userSessionId");
@@ -124,9 +122,7 @@ public class HomeController {
         return "redirect:board";
     }
 
-    /**
-     * Below method will be deleted after Sara implement her controller method
-     */
+
     @GetMapping("/mypage")
     public String myPage(HttpSession httpSession, ModelMap modelMap){
         // before doing anything we should check if user is logged in or not
@@ -141,7 +137,6 @@ public class HomeController {
             modelMap.addAttribute("wishes", wishes);
             return "mypage";
         } else {
-
             return "redirect:/login";
         }
     }
@@ -157,7 +152,6 @@ public class HomeController {
 
     @GetMapping("/login")
     public String login() {
-
         return "login";
     }
 
@@ -175,10 +169,50 @@ public class HomeController {
         } else {
             httpSession.setAttribute("userSessionId", userId);
             return "redirect:/";
-
         }
-
     }
 
-    /**  Nazmul's Methods ends here */
-}
+    @GetMapping("/add-user")
+    public String addUser(){
+        return "add-user";
+    }
+
+    @PostMapping("/add-user-handler")
+    public String addUserHandler(
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String email,
+            @RequestParam String address,
+            @RequestParam int phone,
+            @RequestParam String username,
+            @RequestParam String password,
+            Model model
+    ) throws IOException {
+        int newlyAddedUserId = userService.addUser(firstName, lastName, email, address, phone);
+        if (newlyAddedUserId !=0 ){
+            userService.addLogin(newlyAddedUserId, username, password);
+            return "/login";
+        }
+        return "redirect:/mypage";
+    }
+
+    @GetMapping("/edit-user/{id}")
+    public String editUser(@PathVariable int id, Model model) {
+        User user = userService.getUserDetail(id);
+        model.addAttribute("userDetail", user);
+        return "edit-user";
+    }
+
+    @PostMapping("/edit-user-handler")
+    public String editUserHandler(
+            @RequestParam int userId,
+            @RequestParam String email,
+            @RequestParam String address,
+            @RequestParam String phone
+    ) {
+
+        userService.editUser(userId, email, address, phone);
+        return "redirect:/mypage";
+    }
+
+} // class ends here
