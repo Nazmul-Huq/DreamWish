@@ -78,7 +78,7 @@ public class HomeController {
         List<String> addStatus = wishService.addWish(title, description, imageName, status, expireDate, userId);
 
         model.addAttribute(addStatus);
-        return "redirect:/add-wish";
+        return "redirect:/mypage";
     }
 
     @PostMapping("/edit-wish-handler")
@@ -100,7 +100,7 @@ public class HomeController {
             wishService.saveImage(imageName, multipartFile);
         }
         model.addAttribute(editStatus);
-        return "redirect:/";
+        return "redirect:/mypage";
     }
 
     @GetMapping("/edit-wish/{id}")
@@ -168,7 +168,7 @@ public class HomeController {
             return "redirect:/login";
         } else {
             httpSession.setAttribute("userSessionId", userId);
-            return "redirect:/";
+            return "redirect:/mypage";
         }
     }
 

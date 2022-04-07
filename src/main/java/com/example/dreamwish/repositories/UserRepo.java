@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class UserRepo {
+
     public String getUserName(int id) {
         String userName = "";
         try {
@@ -74,7 +75,7 @@ public class UserRepo {
 
             // create the mysql insert prepared statement
             PreparedStatement preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setInt(1, login.getUserid());
+            preparedStmt.setInt(1, login.getUserId());
             preparedStmt.setString (2, login.getUsername());
             preparedStmt.setString (3, login.getPassword());
 
