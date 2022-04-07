@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<html lang="en" xmlns:th="http:www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Make And Share Wish</title>
     <div th:replace="code-fragments :: head"></div>
+    <script src="board.js" defer></script>
 </head>
 
 <body>
 
 <div th:replace="code-fragments :: logo-menu"></div>
 
-<div id="board-background">
+<div class="board-background">
 
 
-    <div class="row">
+            <div th:each="wish: ${wishesFromBoard}" class="board-note">
 
-            <div th:each="wish: ${wishesFromBoard}" class="board-div">
 
-                <h>Wishes: </h>
-                <p class="wish-text-board" th:each="wish: ${wishesFromBoard}">
+                <h>Wish: </h>
+                <p class="wish-text-board">
                     <span th:text="${wish.title}"></span>
                     <span th:text="${wish.description}"></span>
                     <span th:text="${wish.status}"></span>
                 </p>
 
             </div>
-    </div>
 
 </div>
+
 <div th:replace="code-fragments :: footer"></div>
 
 </body>
