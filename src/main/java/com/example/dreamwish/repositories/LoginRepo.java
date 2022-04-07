@@ -9,6 +9,9 @@ public class LoginRepo {
     Statement stmt;
     ResultSet rSet;
 
+    // check if username and password is correct or not
+    // if ok, return the userid for the given password
+    // if not, return 0
     public int getUsernameAndPassword(String username, String password) {
 
         int userid = 0;
