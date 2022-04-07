@@ -10,9 +10,11 @@ public class  Wish {
     private String expireDate;
     private int userId;
 
+    // default constructor
     public Wish() {
     }
 
+    // constructor without id
     public Wish(String title, String description, String image, String status, String expireDate, int userId) {
         this.title = title;
         this.description = description;
@@ -22,6 +24,7 @@ public class  Wish {
         this.userId = userId;
     }
 
+    // constructor with all parameters
     public Wish(int id, String title, String description, String image, String status, String expireDate, int userId) {
         this.id = id;
         this.title = title;
@@ -34,10 +37,6 @@ public class  Wish {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {

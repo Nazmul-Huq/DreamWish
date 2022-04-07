@@ -144,11 +144,23 @@ public class WishService {
         return true;
     }
 
+    /**
+     * method to fetch all wishes of a particular user by using user id
+     * @param userId
+     * @return
+     */
     public List<Wish> getUserWishes(int userId){
         List<Wish> wishes = wishRepo.getUserWishes(userId);
         return wishes;
     }
 
+    /**
+     * this method will share a wish in the board
+     * Note: board is a public place, where people can see all shared wishes
+     * got to http://localhost:8080/board to see board
+     * @param id
+     * @return
+     */
     public boolean shareWish(int id) {
         if(wishRepo.addWishToBoard(id)){
             return true;
@@ -157,12 +169,23 @@ public class WishService {
         }
     }
 
+    /**
+     * get an individual wish by id
+     * @param id
+     * @return
+     */
     public Wish getWishById(int id) {
         Wish wish = wishRepo.getWishBYId(id);
         return wish;
     }
 
 
+    /**
+     * save an image to the image folder if uploaded
+     * @param imageName
+     * @param multipartFile
+     * @throws IOException
+     */
     public void saveImage(String imageName, MultipartFile multipartFile)  throws IOException {
         Path uploadPath = Paths.get("src/main/resources/static/images");
         try {

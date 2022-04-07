@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Nazmul's code
- */
 public class WishRepo {
     Connection connection;
 
@@ -69,6 +66,11 @@ public class WishRepo {
 
     }
 
+    /**
+     * fetch all wishes of a particular user
+     * @param userId
+     * @return
+     */
     public List<Wish> getUserWishes(int userId) {
         List<Wish> wishes = new ArrayList<>();
         try {
@@ -96,6 +98,11 @@ public class WishRepo {
         }
     }
 
+    /**
+     * add wish to the board when a user clicked on "Share Wish"
+     * @param id
+     * @return
+     */
     public boolean addWishToBoard(int id) {
 
         try{
@@ -115,6 +122,11 @@ public class WishRepo {
         }
     }
 
+    /**
+     * get an individual wish by id
+     * @param id
+     * @return
+     */
     public Wish getWishBYId(int id) {
         Wish emptyWish = new Wish();
         try {
@@ -146,6 +158,16 @@ public class WishRepo {
         }
     }
 
+    /**
+     * set edited data to the database for a particualr wish
+     * @param wishId
+     * @param title
+     * @param description
+     * @param image
+     * @param status
+     * @param expireDate
+     * @return
+     */
     public boolean editWish(
             int wishId,
             String title,
@@ -181,4 +203,4 @@ public class WishRepo {
             return false;
         }
     }
-}
+} // class ends here
