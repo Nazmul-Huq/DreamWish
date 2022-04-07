@@ -16,6 +16,8 @@
         <div class="mypage-content">
             <p class="mypage-title">Welcome <span th:text="${userName}"></span></p>
             <p>Do you like to add a wish? <a th:href="@{/add-wish}">Click Here</a></p>
+            <p><a href="logout">Click here to Logout</a></p>
+
 
         </div>
         <div class="wish-div" th:each="wish: ${wishes}">

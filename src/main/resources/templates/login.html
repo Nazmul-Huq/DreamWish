@@ -1,37 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" th:href="@{login-registration.css}" href="../static/login-registration.css">
-        <!-- <a href ="logout">Logout</a> -->
-        <link rel="stylesheet" th:href="@{menu.css}" href="..\static\menu.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" th:href="@{template.css}" href="..\static\template.css">
-    </head>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Make And Share Wish</title>
+    <div th:replace="code-fragments :: head"></div>
+</head>
+
 <body>
-    <div class="container">
-         <div id="logo-div">
-            <!-- a logo / name of the webapp will be here-->
-            <p><h1>DREAM•WISH</h1></p>
-        </div>
 
-        <div id="menu-div" >
-            <!-- menu items will be here-->
+<div th:replace="code-fragments :: logo-menu"></div>
 
-            <ul class="nav-menu";>
-                <li>My Wishlist</li>
-                •
-                <li>Wishlists Shared With Me</li>
-                •
-                <li>Get Inspo</li>
-                •
-                <li>My Profile</li>
-            </ul>
-        </div>
-    </div>
-
-<div class="login-body">
+<body class="login-body">
 <div id="clouds">
     <div class="cloud x1"></div>
     <div class="cloud x2"></div>
@@ -62,31 +41,11 @@
     <div class="cloud x4"></div>
     <div class="cloud x5"></div>
     </div> <!-- clouds -->
-</div> <!-- login-body -->
+</body> <!-- login-body -->
 
-    <div id="footer-div">
-        <!-- footer related content will be here-->
-        <hr class="dashed">
-        <div class="row">
-            <div class="column" id="address-div">
-                <h4>Address</h4>
-                Dream Wish <br/>
-                Guldbergsgade 29N, <br/>
-                2200 København <br/>
-            </div>
 
-            <div class="column" id="contact-div">
-                <h4>Contact information</h4>
-                Phone: + 45 75 42 42 42 <br/>
-                Email: dreamwish@stud.kea.dk
-            </div>
 
-            <div class="column" id="follow-div">
-                <h4>Follow Us</h4>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-youtube"></a>
-            </div>
-        </div>
-    </div>
+<div th:replace="code-fragments :: footer"></div>
+
+</body>
 </html>
