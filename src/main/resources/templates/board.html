@@ -9,35 +9,25 @@
 <body>
 
 <div th:replace="code-fragments :: logo-menu"></div>
-    <div id="body-div">
-        <div id="board-background">
-            <div id="box-div"></div>
 
-                <div class="row">
-
-                    <div class="board-div">
-
-                    </div>
-                    <div class="board-div">
-                        <section>
-                            <h>Here is every wish: </h>
-                            <p class="wish-text-board" th:each="wish: ${wishesFromBoard}">
-                            <span th:text="${wish.title}"></span>
-                            <span th:text="${wish.description}"></span>
-                            <span th:text="${wish.status}"></span>
-                        </p>
-                    </section>
+<div id="board-background">
 
 
-                </div>
+    <div class="row">
+
+            <div th:each="wish: ${wishesFromBoard}" class="board-div">
+
+                <h>Wishes: </h>
+                <p class="wish-text-board" th:each="wish: ${wishesFromBoard}">
+                    <span th:text="${wish.title}"></span>
+                    <span th:text="${wish.description}"></span>
+                    <span th:text="${wish.status}"></span>
+                </p>
+
             </div>
-
-                    <div class="board-div">
-            </div>
-            </div>
-        </div>
-
     </div>
+
+</div>
 <div th:replace="code-fragments :: footer"></div>
 
 </body>
